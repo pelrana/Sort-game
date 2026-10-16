@@ -19,7 +19,7 @@
     <button id="start-game-btn" style="margin-top: 15px;">ゲームスタート！</button>
   </div>
 
-  <!-- 2. ゲームプレイ中のメイン画面 -->
+  <!-- 2. ゲームプレイ中のメイン画面（最初は hidden） -->
   <div id="game-main-screen" class="hidden">
     <div id="game-status">
       <p>現在のフェーズ: <span id="phase-name">準備中</span></p>
@@ -87,8 +87,6 @@
   margin: 20px auto;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  position: relative;
-  z-index: 10;
 }
 
 .hidden {
@@ -170,6 +168,8 @@ button:hover {
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 150px;
+  background-color: #fff; /* 入力欄が確実に触れるように指定 */
+  cursor: text;
 }
 </style>
   <script src="script.js"></script>
