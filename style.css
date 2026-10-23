@@ -5,7 +5,6 @@ body {
   color: #333;
   margin: 0;
   padding: 20px;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='%23000000' d='M6 4h20c1.1 0 2 .9 2 2v20c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm4 8v8c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2h-8c-1.1 0-2 .9-2 2z'/%3E%3C/svg%3E") 16 16, auto;
 }
 
 .box {
@@ -63,7 +62,7 @@ body {
   border-radius: 8px;
   background-color: #fff;
   font-weight: bold;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='%23000000' d='M6 4h20c1.1 0 2 .9 2 2v20c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm4 8v8c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2h-8c-1.1 0-2 .9-2 2 z'/%3E%3C/svg%3E") 16 16, pointer;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -74,7 +73,7 @@ body {
 button {
   padding: 10px 20px;
   font-size: 16px;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='%23000000' d='M6 4h20c1.1 0 2 .9 2 2v20c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm4 8v8c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2h-8c-1.1 0-2 .9-2 2z'/%3E%3C/svg%3E") 16 16, pointer;
+  cursor: pointer;
   border-radius: 5px;
   border: none;
   background-color: #4a90e2;
