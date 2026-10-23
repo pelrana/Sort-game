@@ -1,23 +1,23 @@
-// 🃏 60枚・18種類の拡張カードプール定義
+// 🃏 60-card, 18-algorithm deck pool (English names)
 const CARD_PRESETS = [
-  { name: 'マージソート', count: 2 },
-  { name: 'クイックソート', count: 2 },
-  { name: 'ヒープソート', count: 3 },
-  { name: 'イントロソート', count: 3 },
-  { name: 'ティムソート', count: 3 },
-  { name: 'シェルソート', count: 4 },
-  { name: '基数ソート(LSD)', count: 3 },
-  { name: 'カクテルシェーカー', count: 4 },
-  { name: 'ノームソート', count: 4 },
-  { name: '奇偶転置ソート', count: 4 },
-  { name: '挿入ソート', count: 4 },
-  { name: '選択ソート', count: 4 },
-  { name: 'バブルソート', count: 4 },
-  { name: 'バケツソート', count: 4 },
-  { name: 'Abeソート', count: 2 },
-  { name: 'スターリンソート', count: 2 },
-  { name: 'ボゴソート', count: 4 },
-  { name: 'ミラクルソート', count: 2 }
+  { name: 'Merge Sort', count: 2 },
+  { name: 'Quick Sort', count: 2 },
+  { name: 'Heap Sort', count: 3 },
+  { name: 'Introsort', count: 3 },
+  { name: 'Timsort', count: 3 },
+  { name: 'Shell Sort', count: 4 },
+  { name: 'Radix Sort (LSD)', count: 3 },
+  { name: 'Cocktail Shaker', count: 4 },
+  { name: 'Gnome Sort', count: 4 },
+  { name: 'Odd-Even Sort', count: 4 },
+  { name: 'Insertion Sort', count: 4 },
+  { name: 'Selection Sort', count: 4 },
+  { name: 'Bubble Sort', count: 4 },
+  { name: 'Bucket Sort', count: 4 },
+  { name: 'Abe Sort', count: 2 },
+  { name: 'Stalin Sort', count: 2 },
+  { name: 'Bogo Sort', count: 4 },
+  { name: 'Miracle Sort', count: 2 }
 ];
 
 let deck = [];
@@ -27,7 +27,7 @@ let players = [];
 let currentPlayerIndex = 0; 
 let playerChoices = []; 
 
-// --- 音声合成（Web Audio API） ---
+// --- Web Audio API for Sound Effects ---
 let audioCtx = null;
 function playSound(type) {
   try {
@@ -57,17 +57,17 @@ function playSound(type) {
   } catch (e) {}
 }
 
-// --- 設定画面の入力欄動的生成 ---
+// --- Dynamic Name Input Generation ---
 const playerCountInput = document.getElementById('player-count-input');
 const playerNameInputsContainer = document.getElementById('player-name-inputs');
 
 function updateNameInputFields() {
   const count = parseInt(playerCountInput.value) || 3;
-  playerNameInputsContainer.innerHTML = '<strong>プレイヤー名設定:</strong><br>';
+  playerNameInputsContainer.innerHTML = '<strong>Player Names:</strong><br>';
   for (let i = 0; i < count; i++) {
     const row = document.createElement('div');
     row.className = 'name-input-row';
-    row.innerHTML = `<label>P${i + 1}: <input type="text" id="player-name-${i}" value="プレイヤー${i + 1}"></label>`;
+    row.innerHTML = `<label>P${i + 1}: <input type="text" id="player-name-${i}" value="Player ${i + 1}"></label>`;
     playerNameInputsContainer.appendChild(row);
   }
 }
@@ -75,15 +75,15 @@ function updateNameInputFields() {
 playerCountInput.addEventListener('input', updateNameInputFields);
 updateNameInputFields();
 
-// --- ゲームスタート ---
+// --- Start Game ---
 document.getElementById('start-game-btn').addEventListener('click', () => {
   const count = parseInt(playerCountInput.value);
-  if (count < 1 || count > 6) return alert('1〜6人で設定してね');
+  if (count < 1 || count > 6) return alert('Please set between 1 and 6 players.');
   
   players = [];
   for (let i = 0; i < count; i++) {
     const inputEl = document.getElementById(`player-name-${i}`);
-    const name = inputEl && inputEl.value.trim() !== "" ? inputEl.value.trim() : `プレイヤー${i + 1}`;
+    const name = inputEl && inputEl.value.trim() !== "" ? inputEl.value.trim() : `Player ${i + 1}`;
     players.push({ id: i + 1, name: name, hand: [] });
   }
   
@@ -146,8 +146,8 @@ function startNewRound() {
 
 function updateTurnScreen() {
   const p = players[currentPlayerIndex];
-  document.getElementById('phase-name').textContent = `${p.name} のターン`;
-  document.getElementById('current-player-title').textContent = `${p.name} の番です`;
+  document.getElementById('phase-name').textContent = `${p.name}'s Turn`;
+  document.getElementById('current-player-title').textContent = `${p.name}'s Turn`;
   document.getElementById('cover-screen').classList.remove('hidden');
   document.getElementById('action-screen').classList.add('hidden');
 }
@@ -156,7 +156,7 @@ document.getElementById('show-hand-btn').addEventListener('click', () => {
   document.getElementById('cover-screen').classList.add('hidden');
   document.getElementById('action-screen').classList.remove('hidden');
   const p = players[currentPlayerIndex];
-  document.getElementById('action-prompt-title').textContent = `${p.name} の手札（1枚選んでね）`;
+  document.getElementById('action-prompt-title').textContent = `${p.name}'s Hand (Choose 1 card)`;
   
   const handContainer = document.getElementById('hand-container');
   handContainer.innerHTML = '';
@@ -177,7 +177,7 @@ function selectCard(cardIndex) {
   if (deck.length === 0) createDeck();
   p.hand.push(deck.pop());
 
-  alert(`${p.name} はカードを裏向きで出しました！（手札が補充されました）`);
+  alert(`${p.name} played a card face-down! (Hand replenished)`);
   currentPlayerIndex++;
   
   if (currentPlayerIndex < players.length) {
@@ -187,7 +187,7 @@ function selectCard(cardIndex) {
   }
 }
 
-// --- 全18種類のソート手順生成ロジック ---
+// --- Algorithm Simulation Logic ---
 function getSortSteps(cardName, originalData) {
   let arr = [...originalData];
   let steps = [];
@@ -197,59 +197,59 @@ function getSortSteps(cardName, originalData) {
     return true;
   };
 
-  steps.push({ array: [...arr], active: [], highlight: [], msg: '準備完了' });
+  steps.push({ array: [...arr], active: [], highlight: [], msg: 'Ready' });
 
   switch (cardName) {
-    case 'バブルソート':
+    case 'Bubble Sort':
       for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < arr.length - 1 - i; j++) {
           ops++;
-          steps.push({ array: [...arr], active: [j, j+1], highlight: [], msg: '比較中' });
+          steps.push({ array: [...arr], active: [j, j+1], highlight: [], msg: 'Comparing' });
           if (arr[j] > arr[j+1]) {
             let tmp = arr[j]; arr[j] = arr[j+1]; arr[j+1] = tmp;
             ops++;
-            steps.push({ array: [...arr], active: [j, j+1], highlight: [], msg: 'スワップ' });
+            steps.push({ array: [...arr], active: [j, j+1], highlight: [], msg: 'Swapping' });
           }
         }
       }
       break;
 
-    case '選択ソート':
+    case 'Selection Sort':
       for (let i = 0; i < arr.length; i++) {
         let min = i;
         for (let j = i + 1; j < arr.length; j++) {
           ops++;
-          steps.push({ array: [...arr], active: [min, j], highlight: [], msg: '最小値探索' });
+          steps.push({ array: [...arr], active: [min, j], highlight: [], msg: 'Finding min' });
           if (arr[j] < arr[min]) min = j;
         }
         if (min !== i) {
           let tmp = arr[i]; arr[i] = arr[min]; arr[min] = tmp;
           ops++;
-          steps.push({ array: [...arr], active: [i, min], highlight: [], msg: '入れ替え' });
+          steps.push({ array: [...arr], active: [i, min], highlight: [], msg: 'Swapping' });
         }
       }
       break;
 
-    case '挿入ソート':
+    case 'Insertion Sort':
       for (let i = 1; i < arr.length; i++) {
         let key = arr[i], j = i - 1;
         while (j >= 0) {
           ops++;
-          steps.push({ array: [...arr], active: [j, j+1], highlight: [], msg: '挿入探索' });
+          steps.push({ array: [...arr], active: [j, j+1], highlight: [], msg: 'Searching position' });
           if (arr[j] > key) { arr[j+1] = arr[j]; ops++; j--; } else break;
         }
         arr[j+1] = key;
       }
       break;
 
-    case 'クイックソート':
+    case 'Quick Sort':
       function qs(sub) {
         if (sub.length <= 1) return sub;
         let pivot = sub[Math.floor(sub.length / 2)];
         let left = [], right = [], eq = [];
         for (let x of sub) {
           ops++;
-          steps.push({ array: [...arr], active: [], highlight: [], msg: 'ピボット分割' });
+          steps.push({ array: [...arr], active: [], highlight: [], msg: 'Partitioning' });
           if (x < pivot) left.push(x); else if (x > pivot) right.push(x); else eq.push(x);
         }
         return [...qs(left), ...eq, ...qs(right)];
@@ -257,7 +257,7 @@ function getSortSteps(cardName, originalData) {
       arr = qs(arr);
       break;
 
-    case 'マージソート':
+    case 'Merge Sort':
       function ms(sub) {
         if (sub.length <= 1) return sub;
         let mid = Math.floor(sub.length / 2);
@@ -267,7 +267,7 @@ function getSortSteps(cardName, originalData) {
         let res = [], i = 0, j = 0;
         while (i < l.length && j < r.length) {
           ops++;
-          steps.push({ array: [...arr], active: [], highlight: [], msg: 'マージ中' });
+          steps.push({ array: [...arr], active: [], highlight: [], msg: 'Merging' });
           if (l[i] <= r[j]) res.push(l[i++]); else res.push(r[j++]);
         }
         return [...res, ...l.slice(i), ...r.slice(j)];
@@ -275,7 +275,7 @@ function getSortSteps(cardName, originalData) {
       arr = ms(arr);
       break;
 
-    case 'ヒープソート':
+    case 'Heap Sort':
       for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < arr.length - 1; j++) {
           ops++;
@@ -283,25 +283,25 @@ function getSortSteps(cardName, originalData) {
             [arr[j], arr[j+1]] = [arr[j+1], arr[j]];
             ops++;
           }
-          steps.push({ array: [...arr], active: [j, j+1], highlight: [], msg: 'ヒープ構築' });
+          steps.push({ array: [...arr], active: [j, j+1], highlight: [], msg: 'Building heap' });
         }
       }
       arr.sort((a,b) => a-b);
       break;
 
-    case 'イントロソート':
+    case 'Introsort':
       ops += 5;
       arr.sort((a, b) => { ops++; return a - b; });
-      steps.push({ array: [...arr], active: [], highlight: [], msg: 'イントロ最適化' });
+      steps.push({ array: [...arr], active: [], highlight: [], msg: 'Intro optimized' });
       break;
 
-    case 'ティムソート':
+    case 'Timsort':
       ops += 3;
       arr.sort((a, b) => { ops++; return a - b; });
-      steps.push({ array: [...arr], active: [], highlight: [], msg: 'ティム最適化' });
+      steps.push({ array: [...arr], active: [], highlight: [], msg: 'Tim optimized' });
       break;
 
-    case 'シェルソート':
+    case 'Shell Sort':
       let gap = Math.floor(arr.length / 2);
       while (gap > 0) {
         for (let i = gap; i < arr.length; i++) {
@@ -313,21 +313,21 @@ function getSortSteps(cardName, originalData) {
           }
           arr[j] = temp;
           ops++;
-          steps.push({ array: [...arr], active: [], highlight: [], msg: `ギャップ(${gap})ソート` });
+          steps.push({ array: [...arr], active: [], highlight: [], msg: `Gap (${gap}) sort` });
         }
         gap = Math.floor(gap / 2);
       }
       break;
 
-    case '基数ソート(LSD)':
+    case 'Radix Sort (LSD)':
       for (let digit = 0; digit < 2; digit++) {
         ops += arr.length;
         arr.sort((a,b) => a-b);
-        steps.push({ array: [...arr], active: [], highlight: [], msg: `桁バケツ仕分け` });
+        steps.push({ array: [...arr], active: [], highlight: [], msg: `Bucket sorting` });
       }
       break;
 
-    case 'カクテルシェーカー':
+    case 'Cocktail Shaker':
       let left = 0, right = arr.length - 1;
       while (left < right) {
         for (let i = left; i < right; i++) {
@@ -340,11 +340,11 @@ function getSortSteps(cardName, originalData) {
           if (arr[i] < arr[i-1]) { [arr[i], arr[i-1]] = [arr[i-1], arr[i]]; ops++; }
         }
         left++;
-        steps.push({ array: [...arr], active: [], highlight: [], msg: '往復バブル中' });
+        steps.push({ array: [...arr], active: [], highlight: [], msg: 'Shaking back & forth' });
       }
       break;
 
-    case 'ノームソート':
+    case 'Gnome Sort':
       let index = 0;
       while (index < arr.length) {
         ops++;
@@ -355,12 +355,12 @@ function getSortSteps(cardName, originalData) {
           [arr[index], arr[index - 1]] = [arr[index - 1], arr[index]];
           ops++;
           index--;
-          steps.push({ array: [...arr], active: [index, index+1], highlight: [], msg: '小人が一歩戻る' });
+          steps.push({ array: [...arr], active: [index, index+1], highlight: [], msg: 'Gnome steps back' });
         }
       }
       break;
 
-    case '奇偶転置ソート':
+    case 'Odd-Even Sort':
       let sorted = false;
       while (!sorted) {
         sorted = true;
@@ -372,32 +372,32 @@ function getSortSteps(cardName, originalData) {
           ops++;
           if (arr[i] > arr[i+1]) { [arr[i], arr[i+1]] = [arr[i+1], arr[i]]; sorted = false; ops++; }
         }
-        steps.push({ array: [...arr], active: [], highlight: [], msg: '奇偶ペア比較' });
+        steps.push({ array: [...arr], active: [], highlight: [], msg: 'Odd-even pair comparison' });
       }
       break;
 
-    case 'バケツソート':
+    case 'Bucket Sort':
       for (let x of arr) ops++;
       arr.sort((a, b) => { ops += 2; return a - b; });
       break;
 
-    case 'スターリンソート':
+    case 'Stalin Sort':
       let stalin = [arr[0]];
       for (let i = 1; i < arr.length; i++) {
         ops++;
-        steps.push({ array: [...arr], active: [i], highlight: [], msg: '粛清チェック' });
+        steps.push({ array: [...arr], active: [i], highlight: [], msg: 'Purge check' });
         if (arr[i] >= stalin[stalin.length - 1]) stalin.push(arr[i]);
-        else { ops += 8; steps.push({ array: [...arr], active: [i], highlight: [], msg: '粛清！' }); }
+        else { ops += 8; steps.push({ array: [...arr], active: [i], highlight: [], msg: 'Purged!' }); }
       }
       arr = stalin;
       break;
 
-    case 'Abeソート':
+    case 'Abe Sort':
       ops = 4;
       arr.sort((a, b) => a - b);
       break;
 
-    case 'ボゴソート':
+    case 'Bogo Sort':
       {
         let tries = 0;
         const maxTries = 40;
@@ -408,16 +408,16 @@ function getSortSteps(cardName, originalData) {
             ops++;
           }
           tries++;
-          steps.push({ array: [...arr], active: [], highlight: [], msg: `ボゴシャッフル (${tries}/${maxTries})` });
+          steps.push({ array: [...arr], active: [], highlight: [], msg: `Bogo shuffle (${tries}/${maxTries})` });
         }
         if (!isSorted(arr)) {
           ops += 100000;
-          steps.push({ array: [...arr], active: [], highlight: [], msg: 'タイムアウト！' });
+          steps.push({ array: [...arr], active: [], highlight: [], msg: 'Timeout!' });
         }
       }
       break;
 
-    case 'ミラクルソート':
+    case 'Miracle Sort':
       {
         let tries = 0;
         const maxTries = 30;
@@ -430,24 +430,24 @@ function getSortSteps(cardName, originalData) {
             let j = Math.floor(Math.random() * (i + 1));
             [arr[i], arr[j]] = [arr[j], arr[i]];
           }
-          steps.push({ array: [...arr], active: [], highlight: [], msg: `奇跡を祈る... (${tries}/${maxTries})` });
+          steps.push({ array: [...arr], active: [], highlight: [], msg: `Praying for a miracle... (${tries}/${maxTries})` });
         }
         if (!success) {
           ops += 999999;
-          steps.push({ array: [...arr], active: [], highlight: [], msg: '奇跡起きず...' });
+          steps.push({ array: [...arr], active: [], highlight: [], msg: 'No miracle occurred...' });
         } else {
-          steps.push({ array: [...arr], active: [], highlight: arr.map((_, i) => i), msg: '✨ 奇跡が起きた！ ✨' });
+          steps.push({ array: [...arr], active: [], highlight: arr.map((_, i) => i), msg: '✨ A miracle happened! ✨' });
         }
       }
       break;
   }
-  steps.push({ array: [...arr], active: [], highlight: arr.map((_, i) => i), msg: '完了！' });
+  steps.push({ array: [...arr], active: [], highlight: arr.map((_, i) => i), msg: 'Complete!' });
   return { steps, ops };
 }
 
-// --- 同時レース表示フェーズ ---
+// --- Race Phase ---
 function prepareRacePhase() {
-  document.getElementById('phase-name').textContent = 'ソートバトル中！';
+  document.getElementById('phase-name').textContent = 'Sort Battle in Progress!';
   document.getElementById('game-board').classList.add('hidden');
   document.getElementById('pass-and-play-section').classList.add('hidden');
   
@@ -462,9 +462,9 @@ function prepareRacePhase() {
     cardDiv.className = 'racer-card';
     cardDiv.innerHTML = `
       <h3>${choice.playerName}</h3>
-      <p>カード: <strong>${choice.card}</strong></p>
+      <p>Card: <strong>${choice.card}</strong></p>
       <div id="chart-racer-${idx}" class="chart-box"></div>
-      <p id="status-racer-${idx}" style="font-size: 14px; color: #666;">待機中...</p>
+      <p id="status-racer-${idx}" style="font-size: 14px; color: #666;">Waiting...</p>
     `;
     racersContainer.appendChild(cardDiv);
     
@@ -498,7 +498,7 @@ function startAllRaces() {
         const isFin = (stepIdx === steps.length - 1);
         renderSingleChart(`chart-racer-${idx}`, s.array, s.active, s.highlight, isFin);
         
-        let speedNotice = remainingBonus > 0 ? ` [🔥加速中 ${currentSpeed.toFixed(1)}x]` : '';
+        let speedNotice = remainingBonus > 0 ? ` [🔥 Boosting ${currentSpeed.toFixed(1)}x]` : '';
         document.getElementById(`status-racer-${idx}`).textContent = s.msg + speedNotice;
         
         playSound('step');
@@ -506,7 +506,7 @@ function startAllRaces() {
         setTimeout(runStep, delay);
       } else {
         playSound('finish');
-        document.getElementById(`status-racer-${idx}`).innerHTML = `✨ 完了！ (操作回数: ${ops})`;
+        document.getElementById(`status-racer-${idx}`).innerHTML = `✨ Done! (Operations: ${ops})`;
         
         finishedCount++;
         activeRacersCount--;
@@ -527,8 +527,8 @@ function showFinalResults(results) {
   const summary = document.getElementById('result-summary');
   summary.innerHTML = '';
   results.forEach((res, i) => {
-    let rankEmoji = i === 0 ? '👑 1位:' : `${i + 1}位:`;
-    summary.innerHTML += `<p>${rankEmoji} <strong>${res.playerName}</strong>（${res.card}）- 操作回数: ${res.score}回</p>`;
+    let rankEmoji = i === 0 ? '👑 1st:' : `${i + 1}th:`;
+    summary.innerHTML += `<p>${rankEmoji} <strong>${res.playerName}</strong> (${res.card}) - Operations: ${res.score}</p>`;
   });
 
   document.getElementById('next-phase-section').classList.remove('hidden');

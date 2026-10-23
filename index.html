@@ -1,177 +1,75 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>sortgame</title>
+  <title>Sort Algorithm Battle</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>sortgame</h1>
+  <h1>Sort Algorithm Battle</h1>
 
-  <!-- 1. ゲーム開始前の設定画面 -->
+  <!-- 1. Setup Screen -->
   <div id="setup-screen" class="box">
-    <h2>ゲーム設定</h2>
-    <label for="player-count-input">プレイヤー人数 (1〜6人):</label><br>
+    <h2>Game Settings</h2>
+    <label for="player-count-input">Number of Players (1–6):</label><br>
     <input type="number" id="player-count-input" min="1" max="6" value="3" style="width: 60px; font-size: 16px; margin: 10px 0;"><br>
     
     <div id="player-name-inputs"></div>
     
-    <button id="start-game-btn" style="margin-top: 15px;">ゲームスタート！</button>
+    <button id="start-game-btn" style="margin-top: 15px;">Start Game!</button>
   </div>
 
-  <!-- 2. ゲームプレイ中のメイン画面（最初は hidden） -->
+  <!-- 2. Main Game Screen -->
   <div id="game-main-screen" class="hidden">
     <div id="game-status">
-      <p>現在のフェーズ: <span id="phase-name">準備中</span></p>
+      <p>Current Phase: <span id="phase-name">Preparing</span></p>
     </div>
 
-    <!-- お題表示エリア -->
+    <!-- Target Data Display -->
     <div id="game-board" class="box">
-      <h2>お題データ</h2>
+      <h2>Target Data</h2>
       <div id="chart-container" class="chart-box"></div>
     </div>
 
-    <!-- パス＆プレイ用コントロールエリア -->
+    <!-- Pass and Play Section -->
     <div id="pass-and-play-section" class="box">
       <div id="cover-screen">
-        <h3 id="current-player-title">プレイヤーの番です</h3>
-        <p>周りの人に見られないように注意してください！</p>
-        <button id="show-hand-btn">手札を確認してプレイする</button>
+        <h3 id="current-player-title">Player's Turn</h3>
+        <p>Make sure others aren't looking at your screen!</p>
+        <button id="show-hand-btn">Check Hand & Play</button>
       </div>
 
       <div id="action-screen" class="hidden">
-        <h3 id="action-prompt-title">あなたの手札（1枚選んでね）</h3>
+        <h3 id="action-prompt-title">Your Hand (Choose 1 card)</h3>
         <div id="hand-container"></div>
       </div>
     </div>
 
-    <!-- 3. 同時アニメーション＆レース表示エリア -->
+    <!-- 3. Simultaneous Race Animation Section -->
     <div id="race-section" class="hidden box" style="max-width: 800px;">
-      <h2>🚀 ソートバトル開始！</h2>
+      <h2>🚀 Sort Battle Start!</h2>
       <div id="anim-controls" style="margin-bottom: 15px;">
-        <label>速度: 
+        <label>Speed: 
           <select id="speed-select" style="padding: 5px; font-size: 14px;">
-            <option value="0.5">0.5倍速</option>
-            <option value="1" selected>1倍速</option>
-            <option value="2">2倍速</option>
-            <option value="4">4倍速</option>
+            <option value="0.5">0.5x</option>
+            <option value="1" selected>1x</option>
+            <option value="2">2x</option>
+            <option value="4">4x</option>
           </select>
         </label>
-        <button id="start-race-btn" style="margin-left: 10px;">一斉スタート！</button>
+        <button id="start-race-btn" style="margin-left: 10px;">Start All!</button>
       </div>
       <div id="racers-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;"></div>
     </div>
   </div>
 
-  <!-- 4. 判定フェーズ画面 -->
+  <!-- 4. Result Phase Section -->
   <div id="next-phase-section" class="hidden box" style="margin-top: 20px;">
-    <h2>🏆 ラウンド結果発表 🏆</h2>
+    <h2>🏆 Round Results 🏆</h2>
     <div id="result-summary" style="margin: 15px 0; text-align: left; display: inline-block;"></div><br>
-    <button id="next-action-btn">次のラウンドへ</button>
+    <button id="next-action-btn">Next Round</button>
   </div>
-<style>
-    body {
-  font-family: sans-serif;
-  text-align: center;
-  background-color: #f4f4f9;
-  color: #333;
-  margin: 0;
-  padding: 20px;
-}
 
-.box {
-  background: #fff;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  max-width: 450px;
-  margin: 20px auto;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.hidden {
-  display: none !important;
-}
-
-.chart-box {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  height: 150px;
-  width: 240px;
-  margin: 10px auto;
-  border-bottom: 2px solid #333;
-  gap: 4px;
-}
-
-.bar {
-  background-color: #4a90e2;
-  width: 18px;
-  border-radius: 3px 3px 0 0;
-  transition: height 0.1s;
-}
-
-.racer-card {
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  padding: 10px;
-  background: #fafafa;
-  width: 260px;
-}
-
-#hand-container {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 15px;
-  flex-wrap: wrap;
-}
-
-.card {
-  width: 90px;
-  padding: 15px 10px;
-  border: 2px solid #333;
-  border-radius: 8px;
-  background-color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.card:hover {
-  background-color: #e6f2ff;
-  transform: translateY(-3px);
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  border: none;
-  background-color: #4a90e2;
-  color: white;
-  font-weight: bold;
-}
-
-button:hover {
-  background-color: #357abd;
-}
-
-.name-input-row {
-  margin: 8px 0;
-}
-
-.name-input-row input {
-  padding: 6px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 150px;
-  background-color: #fff; /* 入力欄が確実に触れるように指定 */
-  cursor: text;
-}
-</style>
   <script src="script.js"></script>
 </body>
 </html>

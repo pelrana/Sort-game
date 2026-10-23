@@ -1,0 +1,101 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: #f4f4f9;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='%23000000' d='M6 4h20c1.1 0 2 .9 2 2v20c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm4 8v8c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2h-8c-1.1 0-2 .9-2 2z'/%3E%3C/svg%3E") 16 16, auto;
+}
+
+.box {
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  max-width: 450px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.chart-box {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 150px;
+  width: 240px;
+  margin: 10px auto;
+  border-bottom: 2px solid #333;
+  gap: 4px;
+}
+
+.bar {
+  background-color: #4a90e2;
+  width: 18px;
+  border-radius: 3px 3px 0 0;
+  transition: height 0.1s;
+}
+
+.racer-card {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  background: #fafafa;
+  width: 260px;
+}
+
+#hand-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 90px;
+  padding: 15px 10px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background-color: #fff;
+  font-weight: bold;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='%23000000' d='M6 4h20c1.1 0 2 .9 2 2v20c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm4 8v8c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2h-8c-1.1 0-2 .9-2 2 z'/%3E%3C/svg%3E") 16 16, pointer;
+}
+
+.card:hover {
+  background-color: #e6f2ff;
+  transform: translateY(-3px);
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='%23000000' d='M6 4h20c1.1 0 2 .9 2 2v20c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm4 8v8c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2h-8c-1.1 0-2 .9-2 2z'/%3E%3C/svg%3E") 16 16, pointer;
+  border-radius: 5px;
+  border: none;
+  background-color: #4a90e2;
+  color: white;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #357abd;
+}
+
+.name-input-row {
+  margin: 8px 0;
+}
+
+.name-input-row input {
+  padding: 6px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 150px;
+  background-color: #fff;
+  cursor: text;
+}
