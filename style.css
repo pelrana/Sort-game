@@ -60,31 +60,10 @@ body {
   transform: translateY(-3px);
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  border: none;
-  background-color: #4a90e2;
-  color: white;
-  font-weight: bold;
-}
-
 button:hover {
   background-color: #357abd;
 }
 
 .name-input-row {
   margin: 8px 0;
-}
-
-.name-input-row input {
-  padding: 6px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 150px;
-  background-color: #fff;
-  cursor: text;
 }
