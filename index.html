@@ -2,32 +2,106 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sort Algorithm Battle</title>
+  <title>Sort Game</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Sort Algorithm Battle</h1>
+  <!-- Header / Settings, Home & Guide Trigger -->
+  <header style="display: flex; justify-content: space-between; align-items: center; max-width: 800px; margin: 0 auto 10px auto;">
+    <h1 style="margin: 0; font-size: 24px;" data-i18n="appTitle">Sort Game</h1>
+    <div>
+      <button id="guide-btn" style="padding: 6px 12px; font-size: 14px; background-color: #27ae60; margin-right: 5px;" data-i18n="guideBtn">📖 Guide</button>
+      <button id="home-btn" class="hidden" style="padding: 6px 12px; font-size: 14px; background-color: #e67e22; margin-right: 5px;" data-i18n="homeBtn">🏠 Home</button>
+      <button id="open-settings-btn" style="padding: 6px 12px; font-size: 14px;">⚙️ Settings</button>
+    </div>
+  </header>
+
+  <!-- 📖 アルゴリズム解説モーダル -->
+  <div id="guide-modal" class="modal-overlay hidden">
+    <div class="modal-content box" style="max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; text-align: left;">
+      <h2 data-i18n="guideTitle" style="text-align: center;">Algorithm Guide</h2>
+      <div id="guide-list" style="margin-top: 15px;"></div>
+      <button id="close-guide-btn" style="display: block; margin: 20px auto 0 auto;" data-i18n="closeBtn">Close</button>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settings-modal" class="modal-overlay hidden">
+    <div class="modal-content box">
+      <h2 data-i18n="settingsTitle">Settings</h2>
+      
+      <div class="setting-item">
+        <label for="lang-select" data-i18n="languageLabel">Language:</label>
+        <select id="lang-select" style="padding: 5px; font-size: 14px; margin-left: 10px;">
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+        </select>
+      </div>
+
+      <div class="setting-item" style="margin-top: 15px;">
+        <label for="data-count-select" data-i18n="dataCountLabel">Data Count:</label>
+        <select id="data-count-select" style="padding: 5px; font-size: 14px; margin-left: 10px;">
+          <option value="6">6</option>
+          <option value="8" selected>8</option>
+          <option value="10">10</option>
+          <option value="12">12</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+        </select>
+      </div>
+
+      <div class="setting-item" style="margin-top: 15px;">
+        <label for="max-tries-select" data-i18n="maxTriesLabel">Luck-based Max Tries:</label>
+        <select id="max-tries-select" style="padding: 5px; font-size: 14px; margin-left: 10px;">
+          <option value="1000">1,000</option>
+          <option value="10000">10,000</option>
+          <option value="50000">50,000</option>
+          <option value="100000" selected>100,000</option>
+        </select>
+      </div>
+
+      <div class="setting-item" style="margin-top: 15px;">
+        <label for="volume-range" data-i18n="volumeLabel">Volume:</label>
+        <input type="range" id="volume-range" min="0" max="1" step="0.05" value="0.3" style="vertical-align: middle; margin-left: 10px;">
+        <span id="volume-value">30%</span>
+      </div>
+
+      <button id="close-settings-btn" style="margin-top: 20px;" data-i18n="closeBtn">Close</button>
+    </div>
+  </div>
 
   <!-- 1. Setup Screen -->
   <div id="setup-screen" class="box">
-    <h2>Game Settings</h2>
-    <label for="player-count-input">Number of Players (1–6):</label><br>
+    <h2 data-i18n="setupTitle">Game Settings</h2>
+    
+    <!-- 🎮 モード選択 (data-i18n を各オプションに追加) -->
+    <div style="margin-bottom: 15px; text-align: left;">
+      <label for="game-mode-select" data-i18n="gameModeLabel" style="font-weight: bold;">Game Mode:</label><br>
+      <select id="game-mode-select" style="width: 100%; padding: 8px; font-size: 14px; margin-top: 5px;">
+        <option value="normal" data-i18n="modeNormal" selected>1. Continuous Normal Battle</option>
+        <option value="race3" data-i18n="modeRace3">2. Race to 3 Wins (5 Rounds)</option>
+        <option value="predictFast" data-i18n="modePredictFast">3. Predict Fastest Sort</option>
+        <option value="predictOrder" data-i18n="modePredictOrder">4. Predict Fewest Ops Order</option>
+      </select>
+    </div>
+
+    <label for="player-count-input" data-i18n="playerCountLabel">Number of Players (1–6):</label><br>
     <input type="number" id="player-count-input" min="1" max="6" value="3" style="width: 60px; font-size: 16px; margin: 10px 0;"><br>
     
     <div id="player-name-inputs"></div>
     
-    <button id="start-game-btn" style="margin-top: 15px;">Start Game!</button>
+    <button id="start-game-btn" style="margin-top: 15px;" data-i18n="startGameBtn">Start Game!</button>
   </div>
 
   <!-- 2. Main Game Screen -->
   <div id="game-main-screen" class="hidden">
     <div id="game-status">
-      <p>Current Phase: <span id="phase-name">Preparing</span></p>
+      <p><span data-i18n="currentPhaseLabel">Current Phase</span>: <span id="phase-name">---</span> <span id="mode-info-badge" style="background: #4a90e2; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-left: 5px;"></span></p>
     </div>
 
     <!-- Target Data Display -->
     <div id="game-board" class="box">
-      <h2>Target Data</h2>
+      <h2 data-i18n="targetDataTitle">Target Data</h2>
       <div id="chart-container" class="chart-box"></div>
     </div>
 
@@ -35,8 +109,8 @@
     <div id="pass-and-play-section" class="box">
       <div id="cover-screen">
         <h3 id="current-player-title">Player's Turn</h3>
-        <p>Make sure others aren't looking at your screen!</p>
-        <button id="show-hand-btn">Check Hand & Play</button>
+        <p id="turn-sub-message" data-i18n="coverNotice">Make sure others aren't looking at your screen!</p>
+        <button id="show-hand-btn" data-i18n="showHandBtn">Check Hand & Play</button>
       </div>
 
       <div id="action-screen" class="hidden">
@@ -47,17 +121,18 @@
 
     <!-- 3. Simultaneous Race Animation Section -->
     <div id="race-section" class="hidden box" style="max-width: 800px;">
-      <h2>🚀 Sort Battle Start!</h2>
+      <h2 data-i18n="raceTitle">🚀 Sort Battle Start!</h2>
       <div id="anim-controls" style="margin-bottom: 15px;">
-        <label>Speed: 
+        <label><span data-i18n="speedLabel">Speed</span>: 
           <select id="speed-select" style="padding: 5px; font-size: 14px;">
-            <option value="0.5">0.5x</option>
-            <option value="1" selected>1x</option>
-            <option value="2">2x</option>
-            <option value="4">4x</option>
+            <option value="1">1x</option>
+            <option value="10">10x</option>
+            <option value="100">100x</option>
+            <option value="500" selected>500x (Hyper Turbo)</option>
           </select>
         </label>
-        <button id="start-race-btn" style="margin-left: 10px;">Start All!</button>
+        <button id="start-race-btn" style="margin-left: 10px;" data-i18n="startRaceBtn">Start All!</button>
+        <button id="stop-race-btn" class="hidden" style="margin-left: 5px; background-color: #e74c3c;" data-i18n="stopRaceBtn">Stop / Skip</button>
       </div>
       <div id="racers-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;"></div>
     </div>
@@ -65,9 +140,9 @@
 
   <!-- 4. Result Phase Section -->
   <div id="next-phase-section" class="hidden box" style="margin-top: 20px;">
-    <h2>🏆 Round Results 🏆</h2>
+    <h2 data-i18n="resultsTitle">🏆 Round Results 🏆</h2>
     <div id="result-summary" style="margin: 15px 0; text-align: left; display: inline-block;"></div><br>
-    <button id="next-action-btn">Next Round</button>
+    <button id="next-action-btn" data-i18n="nextRoundBtn">Next Round</button>
   </div>
 
   <script src="script.js"></script>
