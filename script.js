@@ -1,48 +1,49 @@
-// 🌍 多言語テキスト辞書 (i18n)
+// 多言語テキスト辞書 (i18n)
 const TRANSLATIONS = {
   en: {
     appTitle: "Sort Game",
+    settingsBtn: "Settings",
     settingsTitle: "Settings",
     languageLabel: "Language:",
     dataCountLabel: "Data Count:",
     maxTriesLabel: "Luck-based Max Tries:",
     volumeLabel: "Volume:",
     closeBtn: "Close",
-    homeBtn: "🏠 Home",
-    guideBtn: "📖 Guide",
+    homeBtn: "Home",
+    guideBtn: "Guide",
     guideTitle: "Algorithm Guide",
     setupTitle: "Game Settings",
     gameModeLabel: "Game Mode:",
     modeNormal: "1. Continuous Normal Battle",
-    modeRace3: "2. Race to 3 Wins (5 Rounds)",
+    modeRace3: "2. First to 3 Points",
     modePredictFast: "3. Predict Fastest Sort",
     modePredictOrder: "4. Predict Fewest Ops Order",
     playerCountLabel: "Number of Players (1–6):",
     playerNamesHeader: "Player Names:",
     defaultPlayerName: "Player",
-    startGameBtn: "Start Game!",
+    startGameBtn: "Start Game",
     currentPhaseLabel: "Current Phase",
     targetDataTitle: "Target Data",
-    coverNotice: "Make sure others aren't looking at your screen!",
+    coverNotice: "Make sure others aren't looking at your screen",
     showHandBtn: "Check Hand & Play",
     handPrompt: "'s Hand (Choose 1 card)",
     predictFastPrompt: "Choose the FASTEST sorting algorithm (Fewest Operations):",
     predictOrderPrompt: "Choose your rank prediction for these 3 algorithms:",
     turnTitle: "'s Turn",
-    cardPlayedNotice: " played a card face-down! Pass the device to ",
-    raceTitle: "🚀 Sort Battle Start!",
+    cardPlayedNotice: " played a card face-down. Pass the device to ",
+    raceTitle: "Sort Battle Start",
     speedLabel: "Speed",
-    startRaceBtn: "Start All!",
+    startRaceBtn: "Start All",
     stopRaceBtn: "Stop / Skip",
-    resultsTitle: "🏆 Round Results 🏆",
+    resultsTitle: "Round Results",
     nextRoundBtn: "Next Round",
     waitingStatus: "Waiting...",
-    opsDone: "✨ Done! (Operations: ",
+    opsDone: "Done (Operations: ",
     opsLabel: "Operations: ",
-    inProgressPhase: "Sort Battle in Progress!",
+    inProgressPhase: "Sort Battle in Progress",
     modes: {
       normal: "Normal (Continuous)",
-      race3: "Race to 3 Wins",
+      race3: "First to 3 Points",
       predictFast: "Fastest Predictor",
       predictOrder: "Order Predictor"
     },
@@ -67,69 +68,71 @@ const TRANSLATIONS = {
       'Miracle Sort': 'Miracle Sort'
     },
     descriptions: {
-      'Merge Sort': 'Divides the array into halves, sorts them recursively, and merges them back efficiently.',
-      'Quick Sort': 'Picks a pivot, partitions elements into smaller and larger groups, and sorts them recursively.',
-      'Heap Sort': 'Builds a binary heap structure to repeatedly extract the maximum/minimum element.',
-      'Introsort': 'Starts with Quick Sort and switches to Heap Sort when the recursion depth exceeds a limit.',
-      'Timsort': 'Hybrid sorting algorithm derived from Merge Sort and Insertion Sort, optimized for real-world data.',
-      'Shell Sort': 'Compares elements separated by a gap that progressively shrinks down to 1.',
-      'Radix Sort (LSD)': 'Sorts data by grouping individual digits starting from the least significant digit.',
-      'Cocktail Shaker': 'A bidirectional variation of Bubble Sort that sorts in both directions alternately.',
-      'Gnome Sort': 'Similar to Insertion Sort, but moves elements to their proper place by a series of swaps like a garden gnome.',
-      'Odd-Even Sort': 'A parallel-friendly sorting algorithm comparing all odd/even indexed pairs alternately.',
-      'Insertion Sort': 'Builds the final sorted array one item at a time by inserting elements into place.',
-      'Selection Sort': 'Repeatedly finds the minimum element from the unsorted part and puts it at the beginning.',
-      'Bubble Sort': 'Repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.',
-      'Bucket Sort': 'Distributes elements into buckets, sorts each bucket individually.',
-      'Abe Sort': 'A legendary high-speed custom sorting method (optimized wrapper).',
-      'Stalin Sort': 'Eliminates any element that is out of order. Brutally efficient!',
-      'Bogo Sort': 'Shuffles the array randomly and checks if it is sorted. Pure luck!',
-      'Miracle Sort': 'Does nothing and just prays for a miracle that the array is already sorted.'
+      'Merge Sort': 'An algorithm that divides data into halves, sorts each half, and merges them cleanly back together.',
+      'Quick Sort': 'An algorithm that picks a pivot, partitions data into smaller and larger groups, and sorts them quickly.',
+      'Heap Sort': 'An algorithm that uses a binary heap structure to sort elements while extracting values efficiently.',
+      'Introsort': 'An algorithm that starts with Quick Sort and switches to Heap Sort when recursion goes too deep.',
+      'Timsort': 'An algorithm that combines Merge Sort and Insertion Sort.',
+      'Shell Sort': 'An algorithm that compares and swaps distant elements while gradually shrinking the gap.',
+      'Radix Sort (LSD)': 'An algorithm that distributes data into buckets digit by digit.',
+      'Cocktail Shaker': 'An algorithm that improves on Bubble Sort by sweeping back and forth in both directions.',
+      'Gnome Sort': 'A cute algorithm that moves elements back and forth like a garden gnome arranging flowerpots.',
+      'Odd-Even Sort': 'A parallel-friendly algorithm that repeatedly compares odd and even indexed pairs alternately.',
+      'Insertion Sort': 'An algorithm that sorts by inserting cards into their proper position one by one.',
+      'Selection Sort': 'An algorithm that repeatedly picks the smallest (or largest) remaining element and moves it to the front.',
+      'Bubble Sort': 'The most famous algorithm that repeatedly compares adjacent elements and swaps them when out of order.',
+      'Bucket Sort': 'An algorithm that distributes values into buckets by range and sorts each bucket individually.',
+      'Abe Sort': 'A wonderful sort that tampers with the data.',
+      'Stalin Sort': 'A sort that eliminates elements that are out of order.',
+      'Bogo Sort': 'A gambling sort that keeps waiting for the miracle of elements lining up cleanly by chance.',
+      'Miracle Sort': 'A sort whose execution count is determined by faith in God.'
     }
+    
   },
   ja: {
     appTitle: "Sort Game",
+    settingsBtn: "設定",
     settingsTitle: "設定",
     languageLabel: "言語 (Language):",
     dataCountLabel: "データ数:",
     maxTriesLabel: "運要素の最大試行回数:",
     volumeLabel: "音量:",
     closeBtn: "閉じる",
-    homeBtn: "🏠 ホーム",
-    guideBtn: "📖 図鑑",
+    homeBtn: "ホーム",
+    guideBtn: "図鑑",
     guideTitle: "アルゴリズム図鑑",
     setupTitle: "ゲーム設定",
     gameModeLabel: "ゲームモード:",
     modeNormal: "1. 通常（連続バトル）",
-    modeRace3: "2. 3点先取（5ラウンド制）",
+    modeRace3: "2. 3ポイント先取バトル",
     modePredictFast: "3. 最速ソート予想",
     modePredictOrder: "4. 少ない順予想",
     playerCountLabel: "プレイヤー人数 (1〜6人):",
     playerNamesHeader: "プレイヤー名:",
     defaultPlayerName: "プレイヤー",
-    startGameBtn: "ゲーム開始！",
+    startGameBtn: "ゲーム開始",
     currentPhaseLabel: "現在のフェーズ",
     targetDataTitle: "ソート対象データ",
-    coverNotice: "他のプレイヤーに画面を見られないようにしてください！",
+    coverNotice: "他のプレイヤーに画面を見られないようにしてください",
     showHandBtn: "手札を確認してプレイ",
     handPrompt: "の手札 (カードを1枚選択)",
-    predictFastPrompt: "提示された3つのうち、最も速く（手数が少なく）終わるソートを予想せよ：",
-    predictOrderPrompt: "提示された3つのソートの「手数の少ない順（1位〜3位）」を予想せよ：",
+    predictFastPrompt: "提示された3つのうち、最も速く（手数が少なく）終わるソートを予想せよ",
+    predictOrderPrompt: "提示された3つのソートの手数の少ない順（1位〜3位）を予想せよ",
     turnTitle: "の番",
-    cardPlayedNotice: " がカードを裏向きで出しました！ 画面を ",
-    raceTitle: "🚀 ソートバトル開始！",
+    cardPlayedNotice: " がカードを裏向きで出しました。画面を ",
+    raceTitle: "ソートバトル開始",
     speedLabel: "速度",
-    startRaceBtn: "一斉スタート！",
+    startRaceBtn: "一斉スタート",
     stopRaceBtn: "強制停止 / スキップ",
-    resultsTitle: "🏆 ラウンド結果発表 🏆",
+    resultsTitle: "ラウンド結果発表",
     nextRoundBtn: "次のラウンドへ",
     waitingStatus: "待機中...",
-    opsDone: "✨ 完了！ (手数: ",
+    opsDone: "完了 (手数: ",
     opsLabel: "手数: ",
-    inProgressPhase: "ソートバトル進行中！",
+    inProgressPhase: "ソートバトル進行中",
     modes: {
       normal: "通常（連続バトル）",
-      race3: "3点先取（5ラウンド制）",
+      race3: "3ポイント先取バトル",
       predictFast: "最速ソート予想",
       predictOrder: "少ない順予想"
     },
@@ -154,24 +157,24 @@ const TRANSLATIONS = {
       'Miracle Sort': 'ミラクルソート'
     },
     descriptions: {
-      'Merge Sort': 'データを半分に分割してそれぞれをソートし、綺麗に結合していく効率的なアルゴリズム。',
-      'Quick Sort': '基準値（ピボット）を決め、それより小さいグループと大きいグループに分けて高速に並び替える。',
-      'Heap Sort': 'ヒープ木構造を利用して、最大値や最小値を効率よく取り出しながら並び替える。',
-      'Introsort': '高速なクイックソートから始まり、深くなりすぎるとヒープソートに切り替えて安全性を高めたハイブリッド型。',
-      'Timsort': 'マージソートと挿入ソートを組み合わせた実用性重視のアルゴリズム。',
-      'Shell Sort': '離れた要素同士を比較・交換しながら、徐々に間隔を狭めて整列していく。',
-      'Radix Sort (LSD)': '各桁の数字ごとにバケット（仕分け箱）へ振り分けて並び替える手法。',
-      'Cocktail Shaker': 'バブルソートの改良版で、左右交互に往復しながら要素を端に追いやっていく。',
+      'Merge Sort': 'データを半分に分割してそれぞれをソートし、綺麗に結合していくアルゴリズム。',
+      'Quick Sort': '基準値（ピボット）を決め、それより小さいグループと大きいグループに分けて高速に並び替えるアルゴリズム。',
+      'Heap Sort': 'ヒープ木構造を利用して、最大値や最小値を効率よく取り出しながら並び替えるアルゴリズム。',
+      'Introsort': '高速なクイックソートから始まり、深くなりすぎるとヒープソートに切り替えるアルゴリズム。',
+      'Timsort': 'マージソートと挿入ソートを組み合わせたアルゴリズム。',
+      'Shell Sort': '離れた要素同士を比較・交換しながら、徐々に間隔を狭めて整列していくアルゴリズム。',
+      'Radix Sort (LSD)': '各桁の数字ごとにバケット（仕分け箱）へ振り分けて並び替えるアルゴリズム。',
+      'Cocktail Shaker': 'バブルソートの改良版で、左右交互に往復しながら要素を端に追いやっていくアルゴリズム。',
       'Gnome Sort': '庭の小人が間違った順序の鉢植えを前後に動かして並び替えるような可愛いアルゴリズム。',
-      'Odd-Even Sort': '奇数番目と偶数番目のペア比較を交互に繰り返す並列処理向けのソート。',
-      'Insertion Sort': '正しい位置にカードを1枚ずつ差し込むようにして順番を整えていく。',
-      'Selection Sort': '未整列の中から一番小さい（または大きい）ものを選んで先頭に持っていく。',
-      'Bubble Sort': '隣り合う要素の大小を比較して入れ替えを繰り返す、最も有名な定番ソート。',
-      'Bucket Sort': '値をいくつかのバケット（範囲）に振り分けてから個別に整列する。',
-      'Abe Sort': '謎の高速最適化がかかるハイパー仕様のソート。',
-      'Stalin Sort': '順序が乱れている要素を容赦なく「粛清（排除）」して強制的に整列させる恐怖のソート。',
-      'Bogo Sort': 'ただひたすらランダムにシャッフルし、偶然綺麗に並ぶ奇跡を待ち続けるギャンブルソート。',
-      'Miracle Sort': '何もせず、最初から奇跡的に並んでいることを祈り続ける奇跡のロマン枠。'
+      'Odd-Even Sort': '奇数番目と偶数番目のペア比較を交互に繰り返す並列処理向けのアルゴリズム。',
+      'Insertion Sort': '正しい位置にカードを1枚ずつ差し込むようにして順番を整えていくアルゴリズム。',
+      'Selection Sort': '未整列の中から一番小さい（または大きい）ものを選んで先頭に持っていくアルゴリズム。',
+      'Bubble Sort': '隣り合う要素の大小を比較して入れ替えを繰り返す、最も有名なアルゴリズム。',
+      'Bucket Sort': '値をいくつかのバケット（範囲）に振り分けてから個別に整列するアルゴリズム。',
+      'Abe Sort': 'データの改ざんを行う素晴らしいソート。',
+      'Stalin Sort': '順序が乱れている要素を排除していくソート。',
+      'Bogo Sort': '偶然綺麗に並ぶ奇跡を待ち続けるギャンブルソート。',
+      'Miracle Sort': '神への信仰度によって実行回数が決まるソート。'
     }
   }
 };
@@ -187,36 +190,38 @@ let lastPlayerWhoPlayed = "";
 let animationTimeouts = [];
 let isRaceRunning = false;
 let playerNamesState = ["Player 1", "Player 2", "Player 3"];
+let lastPredictOptions = [];
 
 const CARD_PRESETS = [
-  { name: 'Merge Sort', count: 2 },
-  { name: 'Quick Sort', count: 2 },
-  { name: 'Heap Sort', count: 3 },
-  { name: 'Introsort', count: 3 },
-  { name: 'Timsort', count: 3 },
-  { name: 'Shell Sort', count: 4 },
-  { name: 'Radix Sort (LSD)', count: 3 },
-  { name: 'Cocktail Shaker', count: 4 },
-  { name: 'Gnome Sort', count: 4 },
-  { name: 'Odd-Even Sort', count: 4 },
-  { name: 'Insertion Sort', count: 4 },
-  { name: 'Selection Sort', count: 4 },
-  { name: 'Bubble Sort', count: 4 },
-  { name: 'Bucket Sort', count: 4 },
-  { name: 'Abe Sort', count: 2 },
-  { name: 'Stalin Sort', count: 2 },
-  { name: 'Bogo Sort', count: 4 },
-  { name: 'Miracle Sort', count: 2 }
+  { name: 'Merge Sort', count: 1 },
+  { name: 'Quick Sort', count: 1 },
+  { name: 'Heap Sort', count: 2 },
+  { name: 'Introsort', count: 2 },
+  { name: 'Timsort', count: 2 },
+  { name: 'Shell Sort', count: 2 },
+  { name: 'Radix Sort (LSD)', count: 2 },
+  { name: 'Cocktail Shaker', count: 2 },
+  { name: 'Gnome Sort', count: 2 },
+  { name: 'Odd-Even Sort', count: 2 },
+  { name: 'Insertion Sort', count: 2 },
+  { name: 'Selection Sort', count: 2 },
+  { name: 'Bubble Sort', count: 2 },
+  { name: 'Bucket Sort', count: 2 },
+  { name: 'Abe Sort', count: 1 },
+  { name: 'Stalin Sort', count: 1 },
+  { name: 'Bogo Sort', count: 2 },
+  { name: 'Miracle Sort', count: 1 }
 ];
 
 let deck = [];
 let targetData = [];
-let players = []; 
-let currentPlayerIndex = 0; 
-let playerChoices = []; 
+let players = [];
+let currentPlayerIndex = 0;
+let playerChoices = [];
+let playerPredictions = [];
 let predictOptions = [];
 
-// 🔊 音量対応 WEB AUDIO API
+// 音量対応 WEB AUDIO API
 let audioCtx = null;
 function playSound(type) {
   if (masterVolume <= 0) return;
@@ -248,7 +253,7 @@ function playSound(type) {
   } catch (e) {}
 }
 
-// ⚙️ 設定 & ガイド UI の処理
+// 設定 & ガイド UI の処理
 const openSettingsBtn = document.getElementById('open-settings-btn');
 const closeSettingsBtn = document.getElementById('close-settings-btn');
 const settingsModal = document.getElementById('settings-modal');
@@ -276,12 +281,12 @@ function renderGuideList() {
   uniqueCards.forEach(cardKey => {
     const cardName = t.cards[cardKey] || cardKey;
     const cardDesc = t.descriptions[cardKey] || 'No description available.';
-    
+
     const itemEl = document.createElement('div');
     itemEl.style.marginBottom = '15px';
     itemEl.style.paddingBottom = '10px';
     itemEl.style.borderBottom = '1px solid #eee';
-    itemEl.innerHTML = `<strong style="font-size: 16px; color: #2c3e50;">${cardName}</strong><p style="margin: 5px 0 0 0; font-size: 14px; color: #555;">${cardDesc}</p>`;
+    itemEl.innerHTML = `<strong style="font-size: 16px; color: #1d1d1f;">${cardName}</strong><p style="margin: 5px 0 0 0; font-size: 14px; color: #86868b;">${cardDesc}</p>`;
     guideList.appendChild(itemEl);
   });
 }
@@ -338,7 +343,7 @@ function applyLanguage() {
   updateNameInputFields();
 }
 
-// 👥 プレイヤー入力枠生成
+// プレイヤー入力枠生成
 const playerCountInput = document.getElementById('player-count-input');
 const playerNameInputsContainer = document.getElementById('player-name-inputs');
 
@@ -353,7 +358,7 @@ function updateNameInputFields() {
 
   const t = TRANSLATIONS[currentLang];
   playerNameInputsContainer.innerHTML = `<strong>${t.playerNamesHeader}</strong><br>`;
-  
+
   for (let i = 0; i < count; i++) {
     if (playerNamesState.length <= i) {
       playerNamesState.push(`${t.defaultPlayerName} ${i + 1}`);
@@ -362,7 +367,7 @@ function updateNameInputFields() {
     const row = document.createElement('div');
     row.className = 'name-input-row';
     row.innerHTML = `<label>P${i + 1}: <input type="text" id="player-name-${i}" value="${val}"></label>`;
-    
+
     const inputEl = row.querySelector('input');
     inputEl.addEventListener('input', (e) => {
       playerNamesState[i] = e.target.value;
@@ -375,33 +380,33 @@ function updateNameInputFields() {
 playerCountInput.addEventListener('input', updateNameInputFields);
 updateNameInputFields();
 
-// 🎮 ゲーム開始
+// ゲーム開始
 document.getElementById('start-game-btn').addEventListener('click', () => {
   const count = parseInt(playerCountInput.value);
   const t = TRANSLATIONS[currentLang];
   if (count < 1 || count > 6) return alert('1〜6人で設定してください。');
-  
+
   players = [];
   for (let i = 0; i < count; i++) {
     const inputEl = document.getElementById(`player-name-${i}`);
     const name = inputEl && inputEl.value.trim() !== "" ? inputEl.value.trim() : `${t.defaultPlayerName} ${i + 1}`;
-    players.push({ id: i + 1, name: name, hand: [], score: 0, wins: 0 });
+    players.push({ id: i + 1, name: name, hand: [], score: 0, points: 0 });
   }
-  
+
   currentRound = 1;
+  lastPredictOptions = [];
   document.getElementById('setup-screen').classList.add('hidden');
   document.getElementById('game-main-screen').classList.remove('hidden');
   homeBtn.classList.remove('hidden');
 
   document.getElementById('mode-info-badge').textContent = t.modes[currentGameMode];
-  
+
   if (currentGameMode === 'normal' || currentGameMode === 'race3') {
     createDeck();
     players.forEach(p => {
       p.hand = [];
       for (let i = 0; i < 3; i++) {
-        if (deck.length === 0) createDeck();
-        p.hand.push(deck.pop());
+        p.hand.push(drawCardAvoidDuplicate(p.hand));
       }
     });
   }
@@ -421,6 +426,27 @@ function createDeck() {
   }
 }
 
+function drawCardAvoidDuplicate(currentHand = []) {
+  if (deck.length === 0) {
+    createDeck();
+  }
+  const nonDuplicateIdx = deck.findIndex(card => !currentHand.includes(card));
+  if (nonDuplicateIdx !== -1) {
+    return deck.splice(nonDuplicateIdx, 1)[0];
+  }
+  return deck.pop();
+}
+
+function pickPredictOptions() {
+  const pool = CARD_PRESETS.map(c => c.name);
+  const filtered = pool.filter(name => !lastPredictOptions.includes(name));
+  const source = filtered.length >= 3 ? filtered : pool;
+  const shuffled = [...source].sort(() => Math.random() - 0.5);
+  const picked = shuffled.slice(0, 3);
+  lastPredictOptions = picked;
+  return picked;
+}
+
 function generateTargetData() {
   targetData = [];
   for (let i = 0; i < dataCount; i++) targetData.push(Math.floor(Math.random() * 90) + 10);
@@ -434,13 +460,13 @@ function renderSingleChart(containerId, dataArray, activeIndices = [], highlight
   dataArray.forEach((val, idx) => {
     const bar = document.createElement('div');
     bar.className = 'bar';
-    bar.style.height = `${val * 2}px`;
+    bar.style.height = `${val}%`;
     if (isFinished) {
-      bar.style.backgroundColor = '#27ae60';
+      bar.style.backgroundColor = '#34c759';
     } else if (activeIndices.includes(idx)) {
-      bar.style.backgroundColor = '#e74c3c';
+      bar.style.backgroundColor = '#ff3b30';
     } else if (highlightIndices.includes(idx)) {
-      bar.style.backgroundColor = '#f1c40f';
+      bar.style.backgroundColor = '#ffcc00';
     }
     container.appendChild(bar);
   });
@@ -449,12 +475,12 @@ function renderSingleChart(containerId, dataArray, activeIndices = [], highlight
 function startNewRound() {
   generateTargetData();
   playerChoices = [];
+  playerPredictions = [];
   currentPlayerIndex = 0;
   lastPlayerWhoPlayed = "";
 
   if (currentGameMode === 'predictFast' || currentGameMode === 'predictOrder') {
-    let shuffledCards = [...CARD_PRESETS].sort(() => Math.random() - 0.5);
-    predictOptions = [shuffledCards[0].name, shuffledCards[1].name, shuffledCards[2].name];
+    predictOptions = pickPredictOptions();
   }
 
   updateTurnScreen();
@@ -463,14 +489,14 @@ function startNewRound() {
 function updateTurnScreen() {
   const t = TRANSLATIONS[currentLang];
   const p = players[currentPlayerIndex];
-  
-  let roundText = (currentGameMode === 'race3') ? ` (Round ${currentRound}/5)` : '';
+
+  let roundText = ` (Round ${currentRound})`;
   document.getElementById('phase-name').textContent = p.name + t.turnTitle + roundText;
   document.getElementById('current-player-title').textContent = p.name + t.turnTitle;
 
   const subMsg = document.getElementById('turn-sub-message');
   if (lastPlayerWhoPlayed !== "") {
-    subMsg.textContent = `${lastPlayerWhoPlayed}${t.cardPlayedNotice}${p.name}!`;
+    subMsg.textContent = `${lastPlayerWhoPlayed}${t.cardPlayedNotice}${p.name}`;
   } else {
     subMsg.textContent = t.coverNotice;
   }
@@ -484,7 +510,7 @@ document.getElementById('show-hand-btn').addEventListener('click', () => {
   document.getElementById('cover-screen').classList.add('hidden');
   document.getElementById('action-screen').classList.remove('hidden');
   const p = players[currentPlayerIndex];
-  
+
   const handContainer = document.getElementById('hand-container');
   handContainer.innerHTML = '';
 
@@ -510,7 +536,7 @@ document.getElementById('show-hand-btn').addEventListener('click', () => {
   } else if (currentGameMode === 'predictOrder') {
     document.getElementById('action-prompt-title').textContent = p.name + `: ${t.predictOrderPrompt} (Pick 1st place)`;
     let selectedOrder = [];
-    
+
     function renderOrderPicker() {
       handContainer.innerHTML = '';
       predictOptions.forEach(cardName => {
@@ -540,12 +566,11 @@ function selectCard(cardIndex) {
   const chosen = p.hand.splice(cardIndex, 1)[0];
   playerChoices.push({ playerName: p.name, card: chosen });
 
-  if (deck.length === 0) createDeck();
-  p.hand.push(deck.pop());
+  p.hand.push(drawCardAvoidDuplicate(p.hand));
 
   lastPlayerWhoPlayed = p.name;
   currentPlayerIndex++;
-  
+
   if (currentPlayerIndex < players.length) {
     updateTurnScreen();
   } else {
@@ -555,7 +580,7 @@ function selectCard(cardIndex) {
 
 function selectPredictFast(chosenCard) {
   const p = players[currentPlayerIndex];
-  playerChoices.push({ playerName: p.name, card: chosenCard, prediction: chosenCard });
+  playerPredictions.push({ playerName: p.name, prediction: chosenCard });
 
   lastPlayerWhoPlayed = p.name;
   currentPlayerIndex++;
@@ -573,7 +598,7 @@ function selectPredictFast(chosenCard) {
 
 function selectPredictOrder(orderArray) {
   const p = players[currentPlayerIndex];
-  playerChoices.push({ playerName: p.name, card: orderArray[0], predictionOrder: orderArray });
+  playerPredictions.push({ playerName: p.name, predictionOrder: orderArray });
 
   lastPlayerWhoPlayed = p.name;
   currentPlayerIndex++;
@@ -589,7 +614,7 @@ function selectPredictOrder(orderArray) {
   }
 }
 
-// 🧮 アルゴリズムの実行処理
+// アルゴリズムの実行処理
 function getSortSteps(cardName, originalData) {
   let arr = [...originalData];
   let steps = [];
@@ -744,7 +769,7 @@ function getSortSteps(cardName, originalData) {
           if (arr[i] < arr[i-1]) { [arr[i], arr[i-1]] = [arr[i-1], arr[i]]; ops++; }
         }
         left++;
-        steps.push({ array: [...arr], active: [], highlight: [], msg: 'Shaking back & forth' });
+        steps.push({ array: [...arr], active: [], highlight: [], msg: 'Shaking back and forth' });
       }
       break;
 
@@ -793,10 +818,10 @@ function getSortSteps(cardName, originalData) {
           ops++;
           if (arr[i] >= stalin[stalin.length - 1]) {
             stalin.push(arr[i]);
-            steps.push({ array: [...arr], active: [i], highlight: [], msg: 'Passed!' });
+            steps.push({ array: [...arr], active: [i], highlight: [], msg: 'Passed' });
           } else {
             ops += 5;
-            steps.push({ array: [...arr], active: [i], highlight: [], msg: 'Purged!' });
+            steps.push({ array: [...arr], active: [i], highlight: [], msg: 'Purged' });
           }
         }
         arr = stalin;
@@ -824,7 +849,7 @@ function getSortSteps(cardName, originalData) {
         }
         if (!isSorted(arr)) {
           ops += 1000000;
-          steps.push({ array: [...arr], active: [], highlight: [], msg: 'Timeout!' });
+          steps.push({ array: [...arr], active: [], highlight: [], msg: 'Timeout' });
         }
       }
       break;
@@ -847,27 +872,27 @@ function getSortSteps(cardName, originalData) {
         }
         if (!success) {
           ops += 9999999;
-          steps.push({ array: [...arr], active: [], highlight: [], msg: 'No miracle occurred...' });
+          steps.push({ array: [...arr], active: [], highlight: [], msg: 'No miracle occurred' });
         } else {
-          steps.push({ array: [...arr], active: [], highlight: arr.map((_, i) => i), msg: '✨ A miracle happened! ✨' });
+          steps.push({ array: [...arr], active: [], highlight: arr.map((_, i) => i), msg: 'A miracle happened' });
         }
       }
       break;
   }
-  steps.push({ array: [...arr], active: [], highlight: arr.map((_, i) => i), msg: 'Complete!' });
+  steps.push({ array: [...arr], active: [], highlight: arr.map((_, i) => i), msg: 'Complete' });
   return { steps, ops };
 }
 
-// 🏁 レース画面
+// レース画面
 function prepareRacePhase() {
   const t = TRANSLATIONS[currentLang];
   document.getElementById('phase-name').textContent = t.inProgressPhase;
   document.getElementById('game-board').classList.add('hidden');
   document.getElementById('pass-and-play-section').classList.add('hidden');
-  
+
   const raceSection = document.getElementById('race-section');
   raceSection.classList.remove('hidden');
-  
+
   const racersContainer = document.getElementById('racers-container');
   racersContainer.innerHTML = '';
 
@@ -879,10 +904,10 @@ function prepareRacePhase() {
       <h3>${choice.playerName}</h3>
       <p>Card: <strong>${localizedCardName}</strong></p>
       <div id="chart-racer-${idx}" class="chart-box"></div>
-      <p id="status-racer-${idx}" style="font-size: 14px; color: #666;">${t.waitingStatus}</p>
+      <p id="status-racer-${idx}" style="font-size: 14px; color: #86868b;">${t.waitingStatus}</p>
     `;
     racersContainer.appendChild(cardDiv);
-    
+
     renderSingleChart(`chart-racer-${idx}`, targetData, [], []);
   });
 
@@ -921,15 +946,15 @@ function startAllRaces() {
       const baseSpeed = parseFloat(document.getElementById('speed-select').value) || 1;
       const remainingBonus = (playerChoices.length - activeRacersCount) * 5;
       const currentSpeed = Math.max(1, baseSpeed + remainingBonus);
-      const delay = Math.max(1, 50 / currentSpeed);
+      const delay = baseSpeed === 1 ? 450 : Math.max(1, 50 / currentSpeed);
 
       if (stepIdx < steps.length) {
         const s = steps[stepIdx];
         const isFin = (stepIdx === steps.length - 1);
         renderSingleChart(`chart-racer-${idx}`, s.array, s.active, s.highlight, isFin);
-        
+
         document.getElementById(`status-racer-${idx}`).textContent = s.msg;
-        
+
         if (currentSpeed < 100) playSound('step');
         stepIdx++;
         let timeoutId = setTimeout(runStep, delay);
@@ -937,10 +962,10 @@ function startAllRaces() {
       } else {
         playSound('finish');
         document.getElementById(`status-racer-${idx}`).innerHTML = `${t.opsDone}${ops})`;
-        
+
         finishedCount++;
         activeRacersCount--;
-        
+
         if (finishedCount === playerChoices.length) {
           isRaceRunning = false;
           document.getElementById('stop-race-btn').classList.add('hidden');
@@ -977,30 +1002,32 @@ function showFinalResults(results) {
   summary.innerHTML = '';
 
   if (currentGameMode === 'normal' || currentGameMode === 'race3') {
-    results.sort((a, b) => a.score - b.score);
     let roundWinner = results[0].playerName;
 
     if (currentGameMode === 'race3') {
       let winnerObj = players.find(p => p.name === roundWinner);
-      if (winnerObj) winnerObj.wins++;
+      if (winnerObj) winnerObj.points++;
     }
 
     results.forEach((res, i) => {
-      let rankEmoji = i === 0 ? '👑 1st:' : `${i + 1}th:`;
+      let rankLabel = `${i + 1}st:`;
+      if (i === 1) rankLabel = '2nd:';
+      else if (i === 2) rankLabel = '3rd:';
+      else if (i >= 3) rankLabel = `${i + 1}th:`;
+
       const localizedCardName = t.cards[res.card] || res.card;
-      summary.innerHTML += `<p>${rankEmoji} <strong>${res.playerName}</strong> (${localizedCardName}) - ${t.opsLabel}${res.score}</p>`;
+      summary.innerHTML += `<p>${rankLabel} <strong>${res.playerName}</strong> (${localizedCardName}) - ${t.opsLabel}${res.score}</p>`;
     });
 
     if (currentGameMode === 'race3') {
-      summary.innerHTML += `<hr style="margin: 10px 0; border: 0; border-top: 1px solid #ccc;"><strong>[Win Counts]</strong><br>`;
+      summary.innerHTML += `<hr style="margin: 10px 0; border: 0; border-top: 1px solid #d2d2d7;"><strong>[Current Points (First to 3)]</strong><br>`;
       players.forEach(p => {
-        summary.innerHTML += `${p.name}: <strong>${p.wins} wins</strong><br>`;
+        summary.innerHTML += `${p.name}: <strong>${p.points} pts</strong><br>`;
       });
 
-      let champion = players.find(p => p.wins >= 3);
-      if (champion || currentRound >= 5) {
-        let text = champion ? `🎉 ${champion.name} Wins the Game!` : `🏁 Game Over!`;
-        summary.innerHTML += `<h3 style="color: #e74c3c; margin-top: 10px;">${text}</h3>`;
+      let champion = players.find(p => p.points >= 3);
+      if (champion) {
+        summary.innerHTML += `<h3 style="color: #0071e3; margin-top: 15px;">${champion.name} Wins the Game (3 Points Reached)</h3>`;
         document.getElementById('next-action-btn').textContent = t.startGameBtn;
         document.getElementById('next-action-btn').onclick = () => {
           document.getElementById('next-phase-section').classList.add('hidden');
@@ -1013,30 +1040,30 @@ function showFinalResults(results) {
     }
   } else if (currentGameMode === 'predictFast') {
     let fastestCard = results[0].card;
-    summary.innerHTML = `<h3>Fastest: ${t.cards[fastestCard] || fastestCard}</h3>`;
-    playerChoices.forEach(choice => {
-      let isCorrect = (choice.prediction === fastestCard);
-      let mark = isCorrect ? '⭕ 正解 (+1pt)' : '❌ 不正解';
+    summary.innerHTML = `<h3>Fastest: ${t.cards[fastestCard] || fastestCard} (${t.opsLabel}${results[0].score})</h3>`;
+    playerPredictions.forEach(pred => {
+      let isCorrect = (pred.prediction === fastestCard);
+      let mark = isCorrect ? '[Correct] (+1pt)' : '[Incorrect]';
       if (isCorrect) {
-        let pObj = players.find(p => p.name === choice.playerName);
+        let pObj = players.find(p => p.name === pred.playerName);
         if (pObj) pObj.score++;
       }
-      summary.innerHTML += `<p><strong>${choice.playerName}</strong> guessed [${t.cards[choice.prediction] || choice.prediction}] - ${mark}</p>`;
+      summary.innerHTML += `<p><strong>${pred.playerName}</strong> guessed [${t.cards[pred.prediction] || pred.prediction}] - ${mark}</p>`;
     });
     summary.innerHTML += `<hr><strong>Scores:</strong><br>`;
     players.forEach(p => { summary.innerHTML += `${p.name}: ${p.score} pts<br>`; });
   } else if (currentGameMode === 'predictOrder') {
     let actualOrder = results.map(r => r.card);
     summary.innerHTML = `<h3>Actual Order: 1st: ${t.cards[actualOrder[0]]}, 2nd: ${t.cards[actualOrder[1]]}, 3rd: ${t.cards[actualOrder[2]]}</h3>`;
-    playerChoices.forEach(choice => {
+    playerPredictions.forEach(pred => {
       let matchCount = 0;
-      choice.predictionOrder.forEach((card, idx) => {
+      pred.predictionOrder.forEach((card, idx) => {
         if (card === actualOrder[idx]) matchCount++;
       });
       let pts = matchCount === 3 ? 3 : (matchCount > 0 ? 1 : 0);
-      let pObj = players.find(p => p.name === choice.playerName);
+      let pObj = players.find(p => p.name === pred.playerName);
       if (pObj) pObj.score += pts;
-      summary.innerHTML += `<p><strong>${choice.playerName}</strong> got ${matchCount}/3 correct (+${pts} pts)</p>`;
+      summary.innerHTML += `<p><strong>${pred.playerName}</strong> got ${matchCount}/3 correct (+${pts} pts)</p>`;
     });
     summary.innerHTML += `<hr><strong>Scores:</strong><br>`;
     players.forEach(p => { summary.innerHTML += `${p.name}: ${p.score} pts<br>`; });
@@ -1049,10 +1076,8 @@ function showFinalResults(results) {
     document.getElementById('stop-race-btn').classList.add('hidden');
     document.getElementById('game-board').classList.remove('hidden');
     document.getElementById('pass-and-play-section').classList.remove('hidden');
-    
-    if (currentGameMode === 'normal' || currentGameMode === 'race3') {
-      currentRound++;
-    }
+
+    currentRound++;
     startNewRound();
   };
 

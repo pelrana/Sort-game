@@ -10,13 +10,13 @@
   <header style="display: flex; justify-content: space-between; align-items: center; max-width: 800px; margin: 0 auto 10px auto;">
     <h1 style="margin: 0; font-size: 24px;" data-i18n="appTitle">Sort Game</h1>
     <div>
-      <button id="guide-btn" style="padding: 6px 12px; font-size: 14px; background-color: #27ae60; margin-right: 5px;" data-i18n="guideBtn">📖 Guide</button>
-      <button id="home-btn" class="hidden" style="padding: 6px 12px; font-size: 14px; background-color: #e67e22; margin-right: 5px;" data-i18n="homeBtn">🏠 Home</button>
-      <button id="open-settings-btn" style="padding: 6px 12px; font-size: 14px;">⚙️ Settings</button>
+      <button id="guide-btn" style="padding: 6px 12px; font-size: 14px; background-color: #27ae60; margin-right: 5px;" data-i18n="guideBtn">Guide</button>
+      <button id="home-btn" class="hidden" style="padding: 6px 12px; font-size: 14px; background-color: #e67e22; margin-right: 5px;" data-i18n="homeBtn">Home</button>
+      <button id="open-settings-btn" style="padding: 6px 12px; font-size: 14px;" data-i18n="settingsBtn">Settings</button>
     </div>
   </header>
 
-  <!-- 📖 アルゴリズム解説モーダル -->
+  <!-- アルゴリズム解説モーダル -->
   <div id="guide-modal" class="modal-overlay hidden">
     <div class="modal-content box" style="max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; text-align: left;">
       <h2 data-i18n="guideTitle" style="text-align: center;">Algorithm Guide</h2>
@@ -74,12 +74,12 @@
   <div id="setup-screen" class="box">
     <h2 data-i18n="setupTitle">Game Settings</h2>
     
-    <!-- 🎮 モード選択 (data-i18n を各オプションに追加) -->
+    <!-- モード選択 -->
     <div style="margin-bottom: 15px; text-align: left;">
       <label for="game-mode-select" data-i18n="gameModeLabel" style="font-weight: bold;">Game Mode:</label><br>
       <select id="game-mode-select" style="width: 100%; padding: 8px; font-size: 14px; margin-top: 5px;">
         <option value="normal" data-i18n="modeNormal" selected>1. Continuous Normal Battle</option>
-        <option value="race3" data-i18n="modeRace3">2. Race to 3 Wins (5 Rounds)</option>
+        <option value="race3" data-i18n="modeRace3">2. Race to 3 Wins</option>
         <option value="predictFast" data-i18n="modePredictFast">3. Predict Fastest Sort</option>
         <option value="predictOrder" data-i18n="modePredictOrder">4. Predict Fewest Ops Order</option>
       </select>
@@ -121,7 +121,7 @@
 
     <!-- 3. Simultaneous Race Animation Section -->
     <div id="race-section" class="hidden box" style="max-width: 800px;">
-      <h2 data-i18n="raceTitle">🚀 Sort Battle Start!</h2>
+      <h2 data-i18n="raceTitle">Sort Battle Start!</h2>
       <div id="anim-controls" style="margin-bottom: 15px;">
         <label><span data-i18n="speedLabel">Speed</span>: 
           <select id="speed-select" style="padding: 5px; font-size: 14px;">
@@ -140,7 +140,7 @@
 
   <!-- 4. Result Phase Section -->
   <div id="next-phase-section" class="hidden box" style="margin-top: 20px;">
-    <h2 data-i18n="resultsTitle">🏆 Round Results 🏆</h2>
+    <h2 data-i18n="resultsTitle">Round Results</h2>
     <div id="result-summary" style="margin: 15px 0; text-align: left; display: inline-block;"></div><br>
     <button id="next-action-btn" data-i18n="nextRoundBtn">Next Round</button>
   </div>
